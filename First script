@@ -1,0 +1,39 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+
+local Window = Library.CreateLib("TITLE", "DarkTheme")
+
+
+--Plr tabs (done)
+local PlrTab = Window:NewTab("Free hub test only")
+local PlrSection = PlrTab:NewSection("Hacks")
+
+PlrSection:NewButton("Reset", "Reset your character", function()
+    game.Players.LocalPlayer Character.Head:Destroy()
+end)
+
+PlrSection:NewToggle("Disable Gravity", "ToggleInfo", function(state)
+    if state then
+        workspace.Gravity = 0
+    else
+        workspace.Gravity = 196.2
+    end
+end)
+
+PlrSection:NewSlider("Speed", "SliderInfo", 500, 0, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+
+PlrSection:NewSlider("Jumppower", "SliderInfo", 500, 0, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.Jumppower = s
+end)
+
+-- Others
+local OthersTab = Window:NewTab("Others")
+local OthersSection = OthersTab:NewSection("Scripts")
+
+Section:NewButton("Infinite Yield", "ButtonInfo", function()
+    loadstring(game:HttpGet("https://cdn.wearedevs.net/scripts/Infinite%20Yield.txt"))()
+end)
+
+
+--My first script ever
